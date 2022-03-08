@@ -4,9 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Hey there</title>
 </head>
 <body>
+    <div id="container">
+        
+        <div class="header">
+            <h2>hey there</h2>
+        </div>
+        <div class="content">
+            <p id="hello"></p>
+            <p id="favSub"></p>
+            <p id="displayTip"></p>
+            <p id="displayTotal"></p>
+
+        </div> 
+        <div class="footer">
+            <h3>That's it!</h3>
+        </div>
+    </div>
+    <script>
+        document.body.addEventListener('mousemove', function(){
+            hello('Mustache');
+        });
+        const hello = (name='world') => {
+            let helloText = document.getElementById('hello'); 
+            helloText.textContent = `Hello, ${name}!`; 
+        }
+    </script>
+    <script>
+        document.body.addEventListener('mousemove', function(){
+            madlib('Anushka', 'Art');
+        });
+        const madlib = (name, subject) => {
+            let favText = document.getElementById('favSub');
+            favSub.textContent = `${name}'s favorite subject is ${subject}.`
+        }
+
+    </script>
+
+    <script>
+        document.body.addEventListener('click', function(){
+            let paySomething = prompt('Please enter your bill amount', 100)
+            let serviceLevel = prompt('Please enter service level: good, fair, other')
+            tipAmount(paySomething, serviceLevel);
+            
+        });
+        const tipAmount = (billAmount, serviceLevel) => {
+            if (serviceLevel === 'good') {
+                let tipSection = document.getElementById('displayTip');
+                let getTip = billAmount * .2;
+                let getTotal = Number(getTip) + Number(billAmount);
+                tipSection.textContent = `The tip amount is ${getTip} and the total is ${getTotal}`;
+            
+            }
+
+            else if (serviceLevel === 'fair') {
+                let tipSection = document.getElementById('displayTip');
+                let getTip = billAmount * .15;
+                let getTotal = Number(getTip) + Number(billAmount);
+                tipSection.textContent = `The tip amount is ${getTip} and the total is ${getTotal}`;
+            }
+            else {
+                let tipSection = document.getElementById('displayTip');
+                let getTip = billAmount * .1;
+                let getTotal = Number(getTip) + Number(billAmount);
+                tipSection.textContent = `The tip amount is ${getTip} and the total is ${getTotal}`;
+            }
+        }
+        
+        
+    </script>
+   
+   
+   
     
 </body>
 </html>
